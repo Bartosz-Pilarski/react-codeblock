@@ -1,4 +1,23 @@
+import { useState } from "react"
 import "./Codeblock.scss"
+
+const CopyButton = ({ content }) => {
+  const [buttonLabel, setButtonLabel] = useState("copy")
+  return (
+    <div 
+      className="codeblock-copy" 
+      onClick={() => {
+      navigator.clipboard.writeText(content)
+      setButtonLabel("copied!")
+      setTimeout(() => {
+        setButtonLabel("copy")
+      }, 1000);
+      }}
+    > 
+    {buttonLabel}
+    </div>
+  )
+}
 
 const Code = ({ content }) => {
   const lines = content.split("\n")
@@ -6,9 +25,7 @@ const Code = ({ content }) => {
   let count = 0
   return (
   <pre className="codeblock-inner">
-    <div className="codeblock-copy" onClick={() => {
-      navigator.clipboard.writeText(content)
-    }}> copy </div>
+    <CopyButton content={content}/>
     {
       lines.map((line) => { 
         count += 1
@@ -28,6 +45,7 @@ const Code = ({ content }) => {
   )
 }
 
+// Separate component for displaying the author. Prefers github users and determines the name and pfp by the github link. Also accepts a simple username.
 const UserPlaque = ({github, user}) => {
   if(github) {
     const username = github.split("/").reverse()[0]
@@ -37,6 +55,7 @@ const UserPlaque = ({github, user}) => {
   }
 }
 
+// Displays code title and the author below the code snippet
 const Overview = ({ overview: {title, github, user} }) => {
   return(
     <div className="codeblock-overview">

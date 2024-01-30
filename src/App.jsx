@@ -17,7 +17,11 @@ const App = () => {
   }
 
   return (
-    <Codeblock code={text} overview={meta}/>
+    <div>
+      <h1>React Codeblock</h1>
+      <h2>Simple React component for displaying code snippets</h2>
+      <Codeblock code={text} overview={meta}/>
+    </div>
   )
 }
 
