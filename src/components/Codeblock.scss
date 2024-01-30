@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$codeblock-black: rgb(40, 40, 55);
+$codeblock-white: whitesmoke;
+$codeblock-gray: mix($codeblock-black, $codeblock-white, 50%);
+
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.codeblock-wrapper {
+  display: block;
+
+  color: $codeblock-gray;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  border: 0.17rem solid $codeblock-gray;
+  border-radius: 0.25rem;
+
+  background-color: $codeblock-white;
+
+  margin: 1rem 2rem;
+
+  .codeblock-inner {
+      position: relative;
+      font-weight: normal;
+
+      display: grid;
+      overflow: hidden;
+  
+      margin: 0.5rem 0.25rem;
+      border-radius: inherit;
+  
+      color: $codeblock-white;
+  
+      background-color: $codeblock-black;
+
+      padding: 0.5rem 0;
+      
+      code {
+          display: inline;    
+
+          &:nth-of-type(2n) {
+              background-color: lighten($codeblock-black, 5%);
+          }
+          &:hover {
+              background-color: lighten($codeblock-black, 10%);
+          }
+
+          .codeblock-counter {
+              color: rgba($color: $codeblock-white, $alpha: 0.33);
+              margin: 0 1.25rem 0 0.5rem;
+          }
+          .codeblock-codeline {
+          }
+      }
+      
+      .codeblock-copy {
+        color: rgba($color: $codeblock-white, $alpha: 0.66);
+        cursor: pointer;
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+      }
+  }
+
+  .codeblock-overview {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 1rem;
+
+    span {
+      height: 2.5rem;
+      line-height: 2.5rem;
+      a {
+        display: flex;
+        flex-direction: row;
+        color: darken($codeblock-gray, 25%);
+        text-decoration: none;
+      }
+      img {
+        margin-left: 0.5rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 100%;
+      }
+      &::after {
+        content: "\00a0"
+      }
+    }
+
+  }
+}
