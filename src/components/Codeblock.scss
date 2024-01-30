@@ -37,18 +37,17 @@ $codeblock-gray: mix($codeblock-black, $codeblock-white, 50%);
       display: grid;
       overflow: hidden;
   
-      margin: 0.5rem 0.25rem;
+      margin: 0.5rem;
       border-radius: inherit;
   
       color: $codeblock-white;
   
       background-color: $codeblock-black;
-
       padding: 0.5rem 0;
       
       code {
-          display: inline;    
-
+        display: flex;
+        flex-direction: row;
           &:nth-of-type(2n) {
               background-color: lighten($codeblock-black, 5%);
           }
@@ -58,7 +57,11 @@ $codeblock-gray: mix($codeblock-black, $codeblock-white, 50%);
 
           .codeblock-counter {
               color: rgba($color: $codeblock-white, $alpha: 0.33);
+              width: 3rem;
+              border-right: 0.15rem rgba($color: $codeblock-white, $alpha: 0.33) solid;
               margin: 0 1.25rem 0 0.5rem;
+              padding-right: 0.25rem;
+              text-align: right;
           }
       }
       
@@ -79,12 +82,19 @@ $codeblock-gray: mix($codeblock-black, $codeblock-white, 50%);
 
     span {
       height: 2.5rem;
-      line-height: 2.5rem;
+      line-height: 2.33rem;
       a {
         display: flex;
         flex-direction: row;
         color: darken($codeblock-gray, 25%);
         text-decoration: none;
+        padding-left: 1rem;
+        &:hover {
+          background-color: darken($codeblock-gray, 25%);
+          color: $codeblock-white;
+          border-radius: 2.5rem;
+          box-shadow: 0 0 1rem $codeblock-gray;
+        }
       }
       img {
         margin-left: 0.5rem;

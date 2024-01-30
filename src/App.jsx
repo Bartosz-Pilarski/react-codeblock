@@ -13,7 +13,7 @@ const App = () => {
   const meta = {
     title: title,
     github: "https://github.com/Bartosz-Pilarski",
-    user: "Komrad-Jurij"
+    user: "Bartosz-Pilarski"
   }
 
   return (
