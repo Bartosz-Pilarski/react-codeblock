@@ -30,7 +30,7 @@ const Code = ({ content }) => {
 
 const UserPlaque = ({github, user}) => {
   if(github) {
-    const username = github ? github.split("/").reverse()[0] : user 
+    const username = github.split("/").reverse()[0]
     return (<span> <a href={github} target="_blank"> {username} <img src={`https://avatars.githubusercontent.com/${username}`} alt="" /> </a> </span>)
   } else {
     return (<span> {user} </span>)
